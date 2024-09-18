@@ -1,38 +1,276 @@
-.App {
-  text-align: center;
+
+.music-card {
+  border: 1px solid #3498db; /* Blue border color */
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.audio-container {
+  width: 300px;
+  margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Style only the audio player controls */
+.custom-audio {
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+}
+
+/* Style the play/pause button and other controls */
+.custom-audio::-webkit-media-controls{
+  background-color: rgb(0, 0, 0);
+}
+.custom-audio::-webkit-media-controls-panel {
+  background-color: #3498db;
+  border-radius: 4px;
+}
+
+/* Style the text color */
+.custom-audio::-webkit-media-controls-current-time-display,
+.custom-audio::-webkit-media-controls-time-remaining-display,
+.custom-audio::-webkit-media-controls-volume-slider-container {
+  color: #000000; 
+}
+
+.custom-audio::-webkit-media-controls-fullscreen-button {
+  color: #000000; /* Green color for fullscreen button */
+}
+.wop{
+  width: max-content;
+  margin-top: -5%;
+  background-color: black;
+}
+.wopp{
+  width: max-content;
+  margin-top: -5%;
+}
+
+.input-container {
+  width: 220px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 5px);
+  transform: translateY(calc(-50% - 5px));
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  transition: .2s linear;
+  border: 2.5px solid #3498db;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.input:focus {
+  outline: none;
+  border: 0.5px solid #3498db;
+  box-shadow: -5px -5px 0px #3498db;
+}
+
+.input-container:hover > .icon {
+  animation: anim 1s linear infinite;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    transform: translateY(calc(-50% - 5px)) scale(1);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 5px)) scale(1.1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mus{
+  color: #3498db;
+  text-shadow: 2px 1px 2px rgb(142, 18, 155);
+  font-weight: bolder;
+  margin-top: -7%;
+  font-size: 30px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #28096b;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff000;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: #522ba7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff000;
+}
+
+.Day-mode {
+  background-color: #ffffff;
+  color: #ffffff; 
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  animation: spinner-y0fdc1 2s infinite ease;
+  transform-style: preserve-3d;
+ }
+ 
+ .spinner > div {
+  background-color: rgba(0,77,255,0.2);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid #004dff;
+ }
+ 
+ .spinner div:nth-of-type(1) {
+  transform: translateZ(-22px) rotateY(180deg);
+ }
+ 
+ .spinner div:nth-of-type(2) {
+  transform: rotateY(-270deg) translateX(50%);
+  transform-origin: top right;
+ }
+ 
+ .spinner div:nth-of-type(3) {
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+ }
+ 
+ .spinner div:nth-of-type(4) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+ }
+ 
+ .spinner div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(50%);
+  transform-origin: bottom center;
+ }
+ 
+ .spinner div:nth-of-type(6) {
+  transform: translateZ(22px);
+ }
+ 
+ @keyframes spinner-y0fdc1 {
+  0% {
+   transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+  }
+ 
+  50% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+  }
+ 
+  100% {
+   transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+  }
+ }
+
+.pop{
+  border: none;
+  background-color: transparent;
+}
+
+.bra{
+  border-radius: 100%;
+  font-size: 45px;
+  background-color: rgb(46, 50, 52);
+  border: none;
+}
+
+/* Style for the time controls */
+.time-controls {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style for the progress bar */
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  background-color: #333;
+  outline: none;
+  border-radius: 4px;
+  margin: 0 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #3498db;
+}
+.ela{
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+
+
+.vertical-volume-container {
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.opo{
+  background-image: url(../src/test-bg.gif);
+  background-size: cover;
+  background-position: center;
 }
